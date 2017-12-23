@@ -6,6 +6,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { WelcomePage } from '../pages/welcome/welcome';
+import { WelcomePageModule } from '../pages/welcome/welcome.module';
+import { MainTabPageModule } from '../pages/main-tab/main-tab.module';
+import { TeamDetailPage } from '../pages/team-detail/team-detail';
+import { StandingPage } from '../pages/standing/standing';
+import { TournamentProvider } from '../providers/tournament/tournament';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,18 +20,23 @@ import { HomePage } from '../pages/home/home';
     HomePage
   ],
   imports: [
+    WelcomePageModule,
+    MainTabPageModule,
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    WelcomePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    TournamentProvider
   ]
 })
 export class AppModule {}
