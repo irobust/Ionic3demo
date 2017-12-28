@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BaseURL } from '../../app-settings';
 
 /*
   Generated class for the TournamentProvider provider.
@@ -9,18 +10,17 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class TournamentProvider {
-  baseURL = "http://localhost:3000/";
 
   constructor(public http: HttpClient) {
     console.log('Hello TournamentProvider Provider');
   }
 
   getAll(){
-    return this.http.get(this.baseURL + 'tournaments');
+    return this.http.get(BaseURL + 'tournaments');
   }
 
   getByYear(year: number){
-    return this.http.get(this.baseURL + 'tournaments/year/'+ year);
+    return this.http.get(BaseURL + 'tournaments/year/'+ year);
   }
 
 }

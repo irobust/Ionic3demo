@@ -13,6 +13,7 @@ import { TeamDetailPage } from '../pages/team-detail/team-detail';
 import { StandingPage } from '../pages/standing/standing';
 import { TournamentProvider } from '../providers/tournament/tournament';
 import { HttpClientModule } from '@angular/common/http';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TournamentProvider
+    TournamentProvider,
+    Camera
   ]
 })
 export class AppModule {}
